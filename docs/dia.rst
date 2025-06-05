@@ -1,13 +1,16 @@
 Data-independent acquisition (DIA) quantification
 ==================================================
 
-In mass spectrometry, data-independent acquisition (DIA) is a method of molecular structure determination in which all ions within a selected m/z range are fragmented and analyzed in a second stage of tandem mass spectrometry [DOR2014]_.
+In mass spectrometry, data-independent acquisition (DIA) is a method of molecular structure determination
+in which all ions within a selected m/z range are fragmented and analyzed in a
+second stage of tandem mass spectrometry [DOR2014]_.
 
 .. image:: images/dia.png
    :width: 300
    :align: center
 
-The major difference between DDA and DIA analytical methods is the way the spectra is acquired. Tandem mass spectra are acquired either by fragmenting all ions that enter the mass spectrometer at a given time (called broadband DIA) or by sequentially isolating and fragmenting ranges of m/z. DIA is an alternative to data-dependent acquisition (:doc:`dda`) where a fixed number of precursor ions are selected and analyzed by tandem mass spectrometry. This is the main reason why the peptide identification protocol is different between (:doc:`identification`) and major search engines like :doc:`msgf` and :doc:`comet` do not work with DIA data.
+The major difference between DDA and DIA analytical methods is the way the spectra is acquired.
+Tandem mass spectra are acquired either by fragmenting all ions that enter the mass spectrometer at a given time (called broadband DIA) or by sequentially isolating and fragmenting ranges of m/z. DIA is an alternative to data-dependent acquisition (:doc:`dda`) where a fixed number of precursor ions are selected and analyzed by tandem mass spectrometry. This is the main reason why the peptide identification protocol is different between (:doc:`identification`) and major search engines like :doc:`msgf` and :doc:`comet` do not work with DIA data.
 
 Data analysis of DIA data is based in two major strategies library-based and library-free peptide identification. The classical approach to DIA data analysis uses a spectral library of peptides, which are queried in the DIA samples and quantified in case of their presence. However, this method has been has multiple drawbacks that make difficult automatic reanalysis of public proteomics data:
 
@@ -41,40 +44,41 @@ The first step of the workflow, translate the SDRF parameters into DIA-NN config
 The second step of the workflow, generate an in-silico spectral library from a FASTA sequence database if predefined transition libraries are not provided.
 The current step is run with the following parameters than can be changed in the commandline:
 
-- `--min_pr_mz & --max_pr_mz`: Minimum & Maximum precursor mz.
-- `--min_fr_mz & --max_fr_mz`: Minimum & Maximum fragment mz.
-- `--allowed_missed_cleavages`: Number of missed-cleavages.
-- `--min_peptide_length & --max_peptide_length`: Minimum & Maximum length of the peptides for the search.
-- `--min_precursor_charge & --max_precursor_charge`: Minimum & Maximum charge states.
-- `--max_mods`: Maximum number of modifications allows for a peptide.
+- ``--min_pr_mz`` & ``--max_pr_mz``: Minimum & Maximum precursor mz.
+- ``--min_fr_mz`` & ``--max_fr_mz``: Minimum & Maximum fragment mz.
+- ``--allowed_missed_cleavages``: Number of missed-cleavages.
+- ``--min_peptide_length`` & ``--max_peptide_length``: Minimum & Maximum length of the peptides for the search.
+- ``--min_precursor_charge`` & ``--max_precursor_charge``: Minimum & Maximum charge states.
+- ``--max_mods``: Maximum number of modifications allows for a peptide.
 
 The third step of the workflow, preliminary analysis of individual raw file based on in-silico predicted or predefined transition library. The .quant files for each raw file that contains IDs and quant info will be saved. This step is run with the following
 parameters that can be changed in the commandline:
 
-- `--mass_acc_automatic`: Mass accuracies are set to automatic, will be determined independently for different runs and enable `quick-mass-acc` algorithm.
-- `--mass_acc_ms2`: Sets the MS2 mass accuracy to N ppm.
-- `--mass_acc_ms1`: Sets the MS1 mass accurary to N ppm.
-- `--scan_window_automatic`: Scan window is set to automatic.
-- `--scan_window`: Sets the scan window radius.
-- `-time_corr_only`: Low RAM & high speed mode enabled.
-- `diann_speclib`: Predefined transition library. DIA-NN supports comma-separated (.csv) or tab-separated (.tsv, .xls or .txt), .speclib (compact format used by DIA-NN), .sptxt (SpectraST, experimental) and .msp (NIST, experimental) library files. Important: the library must not contain non-fragmented precursor ions as 'fragments': each fragment ion must actually be produced by the peptide backbone fragmentation.
-- `random_preanalysis`: Use random/subset files for library search.
-- `empirical_assembly_ms_n`: Number of MS runs to use for empirical assembly.
+- ``--mass_acc_automatic``: Mass accuracies are set to automatic, will be determined independently for different runs and enable `quick-mass-acc` algorithm.
+- ``--mass_acc_ms2``: Sets the MS2 mass accuracy to N ppm.
+- ``--mass_acc_ms1``: Sets the MS1 mass accurary to N ppm.
+- ``--scan_window_automatic``: Scan window is set to automatic.
+- ``--scan_window``: Sets the scan window radius.
+- ``-time_corr_only``: Low RAM & high speed mode enabled.
+- ``diann_speclib``: Predefined transition library. DIA-NN supports comma-separated (.csv) or tab-separated (.tsv, .xls or .txt), .speclib (compact format used by DIA-NN), .sptxt (SpectraST, experimental) and .msp (NIST, experimental) library files. Important: the library must not contain non-fragmented precursor ions as 'fragments': each fragment ion must actually be produced by the peptide backbone fragmentation.
+- ``random_preanalysis``: Use random/subset files for library search.
+- ``empirical_assembly_ms_n``: Number of MS runs to use for empirical assembly.
 
-.. Note:: The MS1 and MS2 mass accuracy only support ppm unit in DIA branch. quantms will automatically enable `--mass_acc_automatic=true` to determine accuracy by DIA-NN if Da unit is provided. In addition, quantms also supports uses random/subset files to empirical library assembly and library search.
-This improves the speed of operation, but may bring about performance degradation.
+.. Note:: The MS1 and MS2 mass accuracy only support ppm unit in DIA branch.
+          quantms will automatically enable ``--mass_acc_automatic=true`` to determine accuracy by DIA-NN if Da unit is provided. In addition, quantms also supports uses random/subset files to empirical library assembly and library search.
+          This improves the speed of operation, but may bring about performance degradation.
 
 The fourth step of the workflow, assemble an empirical spectral library from .quant files. The `IDs RT & IM profiling` mode is enabled. The following parameters are used that can be changed in the commandline:
 
-- `--mass_acc_automatic`: as above.
-- `--mass_acc_ms2`: as above.
-- `--mass_acc_ms1`: as above.
-- `--scan_window_automatic`: as above.
-- `--scan_window`: as above.
+- ``--mass_acc_automatic``: as above.
+- ``--mass_acc_ms2``: as above.
+- ``--mass_acc_ms1``: as above.
+- ``--scan_window_automatic``: as above.
+- ``--scan_window``: as above.
 
 The fifth step of the workflow, final analysis of individual raw file used empirical spectral library (much faster than the preliminary step).
 Now, mass accuracies & scan window will be fixed here in case they were not fixed for step 2. The recommended settings for this experiment will be extracted from log file produced by step 3 and then passed to DIA-NN.
-High-precision quantification mode and protein inference are enabled by `--no-ifs-removal` and `--relaxed-prot-inf`.
+High-precision quantification mode and protein inference are enabled by ``--no-ifs-removal`` and ``--relaxed-prot-inf``.
 
 The last step of the workflow, summaries the information and then generates report files based on the .quant files. It is run with the following parameters than can be changed in the commandline:
 
@@ -105,7 +109,8 @@ By 2022, the quantms DIA workflow based on DIA-NN has the following drawbacks:
 References
 ------------
 
-.. [DOR2014] Doerr, A. DIA mass spectrometry. Nat Methods 12, 35 (2015). https://doi.org/10.1038/nmeth.3234
+.. [DOR2014] Doerr, A. DIA mass spectrometry. Nat Methods 12, 35 (2015). 
+   https://doi.org/10.1038/nmeth.3234
 
 .. [MAXDIA2022] Sinitcyn P, Hamzeiy H, Salinas Soto F, Itzhak D, McCarthy F, Wichmann C, Steger M, Ohmayer U, Distler U, Kaspar-Schoenefeld S, Prianichnikov N, Yılmaz Ş, Rudolph JD, Tenzer S, Perez-Riverol Y, Nagaraj N, Humphrey SJ, Cox J. MaxDIA enables library-based and library-free data-independent acquisition proteomics. Nat Biotechnol. 2021 Dec;39(12):1563-1573. doi: 10.1038/s41587-021-00968-7. Epub 2021 Jul 8. PMID: 34239088; PMCID: PMC8668435.
 
