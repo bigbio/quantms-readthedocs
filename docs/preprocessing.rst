@@ -8,13 +8,14 @@ Mass spectra processing: Raw conversion
 ---------------------------------------
 
 The RAW data (files from the instrument) can be provided to quantms pipeline in two different formats: 
- (i) RAW files - instrument files; 
+
+(i) RAW files - instrument files; 
 (ii) mzML files (HUPO-PSI standard file format).
 
 quantms uses the 
 `thermorawfileparser <https://github.com/compomics/ThermoRawFileParser>`_ 
 to convert the input RAW files to mzML and all the following steps 
-are built in top of the standard mzML.
+are built on top of the standard mzML.
 
 .. important:: Automatic RAW file conversion is only supported from Thermo Scientific.
 
