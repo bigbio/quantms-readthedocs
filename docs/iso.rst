@@ -26,7 +26,7 @@ quantms and the isobaric analyzer step, currently support the following analytic
 
 In this step, the tool extracts the isobaric reporter ion intensities from centroided **MS2** or **MS3** data (MSn), then performs isotope correction and stores the resulting quantitation in a consensus map, in which each consensus feature represents one relevant MSn scan (e.g. HCD; see parameters select_activation and min_precursor_intensity).
 
-.. note:: The MS level for quantification is chosen automatically, i.e. if **MS3 is present, MS2 will be ignored**. A full documentation of the Isobaric Analyzer can be found `here <https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/release/latest/html/TOPP_IsobaricAnalyzer.html>`_
+.. note:: The MS level for quantification is chosen automatically, i.e. if **MS3 is present, MS2 will be ignored**. A full documentation of the Isobaric Analyzer can be found `here <https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/nightly/html/TOPP_IsobaricAnalyzer.html>`_
 
 Importantly, in TMT/iTRAQ data analysis the user must annotated the SDRF (see :doc:`formats`) properly because the experimental design is capture from that input for the data analysis.
 
