@@ -51,12 +51,12 @@ quantms workflow is the psm and peptide FDR threshold ``psm_pep_fdr_cutoff`` (de
           one search engine. However, you need to be aware that adding another search engine will increase the CPU
           computing time. :doc:`benchmarks`.
 
-When multiple search engines are used ```--search_engines msgf,comet``` the results for each input file are
+When multiple search engines are used ``--search_engines msgf,comet`` the results for each input file are
 combined into one single identification file including the combination of all listed search engines.
 To bring scores from different search engines to a comparable level, the posterior (error) probability output
 from either Percolator or the distribution-fitting approach is used.
 
-The OpenMS tool `ConsensusID <https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/nightly/html/TOPP_ConsensusID.html>`_
+The OpenMS tool `ConsensusID <https://www.openms.org/documentation/html/TOPP_ConsensusID.html>`_
 is used to combine the results from different search engines [NAHNSEN2011]_. ConsensusID provides multiple algorithms to combine
 PSMs from multiple search engines. The default option and more widely tested is `best`. In this option, the **best**
 chooses the PSM with the highest probability. Here it is enough for each engine to provide only one top hit.
@@ -94,7 +94,14 @@ optionally the modification sites localization (read more in :doc:`modlocal`). T
 References
 ---------------------------
 
-.. [RIVEROL2014] Perez-Riverol Y, Wang R, Hermjakob H, Müller M, Vesada V, Vizcaíno JA. Open source libraries and frameworks for mass spectrometry based proteomics: a developer's perspective. Biochim Biophys Acta. 2014 Jan;1844(1 Pt A):63-76. doi: 10.1016/j.bbapap.2013.02.032. Epub 2013 Mar 1. PMID: 23467006; PMCID: PMC3898926.
+.. [RIVEROL2014] Perez-Riverol Y, Wang R, Hermjakob H, Müller M, Vesada V, Vizcaíno JA.
+   Open source libraries and frameworks for mass spectrometry based proteomics: a developer's perspective.
+   Biochim Biophys Acta. 2014 Jan;1844(1 Pt A):63-76.
+   doi: `10.1016/j.bbapap.2013.02.032 <https://doi.org/10.1016/j.bbapap.2013.02.032>`_.
+   Epub 2013 Mar 1. PMID: 23467006; PMCID: PMC3898926.
 
-.. [NAHNSEN2011] Nahnsen S, Bertsch A, Rahnenführer J, Nordheim A, Kohlbacher O. Probabilistic consensus scoring improves tandem mass spectrometry peptide identification. J Proteome Res. 2011 Aug 5;10(8):3332-43. doi: 10.1021/pr2002879. Epub 2011 Jun 23. PMID: 21644507.
+.. [NAHNSEN2011] Nahnsen S, Bertsch A, Rahnenführer J, Nordheim A, Kohlbacher O.
+   Probabilistic consensus scoring improves tandem mass spectrometry peptide identification.
+   J Proteome Res. 2011 Aug 5;10(8):3332-43. doi: `10.1021/pr2002879 <https://doi.org/10.1021/pr2002879>`_.
+   Epub 2011 Jun 23. PMID: 21644507.
 
