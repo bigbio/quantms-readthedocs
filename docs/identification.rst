@@ -3,6 +3,7 @@ Peptide identification from fragment spectra
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
    comet
    msgf
@@ -11,6 +12,7 @@ Peptide identification from fragment spectra
    idpep
    fdr
    modlocal
+   ms2rescore
 
 The peptide identification workflow is the cornerstone of data-dependent acquisition (DDA)
 quantification methods such as LFQ or TMT. To identify proteins by mass spectrometry, the proteins of interest in the sample are
