@@ -19,7 +19,7 @@ The pre-requisites to run quantms are:
    version ``1.4.0`` onwards.
    
 .. note:: If you want to download locally the quantms workflow you should also install 
-           `git in your environment <https://git-scm.com/downloads>`_
+          `git in your environment <https://git-scm.com/downloads>`_
 
 
 Installation steps
@@ -29,9 +29,9 @@ Installation steps
 
 2. Install either `Docker <https://docs.docker.com/engine/installation/>`_, 
    `Singularity <https://www.sylabs.io/guides/3.0/user-guide/>`_ or
-    `Podman <https://podman.io/getting-started/installation>`_,
-    see nf-core guidelines for basic 
-    `configuration profiles <https://nf-co.re/usage/configuration#basic-configuration-profiles>`_
+   `Podman <https://podman.io/getting-started/installation>`_,
+   see nf-core guidelines for basic 
+   `configuration profiles <https://nf-co.re/usage/configuration#basic-configuration-profiles>`_
 
 3. Download the pipeline and test it on a minimal dataset with a single command:
 

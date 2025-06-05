@@ -1,5 +1,5 @@
 Percolator (SVM-based re-scoring)
-================================
+=================================
 
 `Percolator <https://github.com/percolator/percolator>`_ rescores search engine results for improved identification rates.
 It uses semi-supervised machine learning to discriminate correct from incorrect peptide-spectrum matches.
@@ -14,14 +14,14 @@ correct peptide spectrum matches. In addition, quantms also supports three diffe
 or merge by projects in follow parameter: `--rescoring_range`. Re-rescoring is proved to have less time consuming and comparable performance in individual run.
 
 Percolator features used in quantms
----------------------------------------
+-------------------------------------
 
 - score recalibration
 - calculation of (posterior) error probabilities for individual PSMs
 - limited batch sizes
 
 Troubleshooting
----------------------------
+----------------
 
 Score recalibration fails. This might be a result of setting the wrong search parameters resulting in too little
 identifications. In those cases, percolator can be disable using the following command:
@@ -32,7 +32,7 @@ For additional details on the main algorithm [KAELL2007]_, [THE2016]_, the q-val
 and posterior error probability estimation [KAELL2008B]_ please refer to the publications.
 
 References
------------------------------
+-----------
 
 .. [KAELL2007] Lukas Käll, Jesse Canterbury, Jason Weston, William Stafford Noble and Michael J. MacCoss.
    Semi-supervised learning for peptide identification from shotgun proteomics datasets. Nature Methods 4:923 – 925,

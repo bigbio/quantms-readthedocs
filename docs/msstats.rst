@@ -29,7 +29,7 @@ analysis (:doc:`iso`) and the DIA analysis (:doc:`dia`). The following table is 
 
 
 .. note:: The msstats output is stored in the `proteomicslfq` folder for lfq experiments, in the `msstatsconverter` folder for the
-isobaric (TMT) experiments and in the `diannconvert` folder for dia experiments.
+          isobaric (TMT) experiments and in the `diannconvert` folder for dia experiments.
 
 MSstats example snippet
 --------------------------
