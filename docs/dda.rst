@@ -28,7 +28,10 @@ but absolute expression is also possible to perform (read more :doc:`absolute`)
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
    lfq
    iso
+   absolute
    inference
+ 
