@@ -57,7 +57,9 @@ of open and collaborative development of the pipeline including continuous testi
 The used software is strictly versioned through the exclusive usage of (bio-)conda packages whose
 association with the biocontainer ecosystem [DA2017]_ also
 allows us to provide a workflow profile for several containerization software's (like docker, singularity, podman, etc.).
-Containerization ensures an even more reproducible environment for your analyses.
+Containerization ensures an even more reproducible environment for your analyses. Currently,
+we use (bio-)conda packages through their docker containers as some other tools we rely on are 
+not available as (bio-)conda packages (DIANN, OpenMS).
 The pipeline can easily be supervised on-the-fly `via nf-tower <https://cloud.tower.nf/>`_. Failed runs can be debugged by investigating
 the rich pipeline execution reports.
 

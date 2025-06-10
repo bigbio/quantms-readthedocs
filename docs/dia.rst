@@ -104,7 +104,7 @@ Important technical notes
 
 By 2022, the quantms DIA workflow based on DIA-NN has the following drawbacks:
 
-- **Conda NOT supported**: The steps of the DIA branch of the pipeline can only be run using **docker**, and **singularity**. The quantms team is working hard to also support conda. You can follow the `quantms discussions <https://github.com/bigbio/quantms/discussions>`_
+- **Conda NOT supported**: The steps of the DIA branch of the pipeline can only be run using **docker**, and **singularity**.
 
 References
 ------------

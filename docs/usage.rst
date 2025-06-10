@@ -48,13 +48,13 @@ This will store a local copy of the pipeline, in order to be able to run it you 
 
 .. code-block:: bash
 
-   nextflow run main.nf -c nextflow.config -profile test_lfq,<docker/singularity/conda/institute>
+   nextflow run main.nf -c nextflow.config -profile test_lfq,<docker/singularity/podman/institute>
 
 You can use nextflow to directly pull from the github:
 
 .. code-block:: bash
 
-   nextflow run bigbio/quantms -r dev -profile test_lfq,<docker/singularity/conda/institute>
+   nextflow run bigbio/quantms -r dev -profile test_lfq,<docker/singularity/podman/institute>
 
 .. note:: Please check `nf-core/configs <https://github.com/nf-core/configs#documentation>`_ 
    to see if a custom config file to run nf-core pipelines already exists for your Institute. 
@@ -62,8 +62,8 @@ You can use nextflow to directly pull from the github:
    This will enable either `docker` or `singularity` and set the appropriate execution 
    settings for your local compute environment.
 
-By using container's environments (e.g. Docker, Singularity or Conda) the user of quantms 
-do not needs to install any dependency, software or tool manually. In addition, by using 
+By using container's environments (e.g. Docker, Singularity or Podman) the user of quantms 
+do not needs to install any dependency, software or tool manually. By using 
 container environments the quantms guaranty the reproducibility/reliability of the analysis.
 
 Usage
@@ -73,7 +73,7 @@ Start running your own analysis!
 
 .. code-block:: bash
 
-   nextflow run bigbio/quantms -profile <docker/singularity/conda/institute> \
+   nextflow run bigbio/quantms -profile <docker/singularity/podman/institute> \
       --input '*.mzml' \
       --database 'myProteinDB.fasta' \
       --expdesign 'myDesign.sdrf.tsv'
