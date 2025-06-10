@@ -79,7 +79,7 @@ Start running your own analysis!
       --expdesign 'myDesign.sdrf.tsv'
 
 
-See `usage docs <https://nf-co.re/quantms/usage>`_ for all of the available options when 
+See `usage docs <https://nf-co.re/quantms/usage>`_ for all of the available options when
 running the pipeline. Or configure the pipeline via
 `nf-core launch <https://nf-co.re/launch/quantms>`_ from the web or the command line.
 
