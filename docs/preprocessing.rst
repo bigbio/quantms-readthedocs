@@ -20,7 +20,8 @@ are built on top of the standard mzML.
 .. important:: Automatic RAW file conversion is only supported from Thermo Scientific.
 
 Additionally to file conversion, the Raw conversion step allows the users 
-to perform an extra peak-picking step ``openmspeakpicker`` ``true`` for those datasets/projects 
+to perform an extra peak-picking step setting ``openmspeakpicker`` to ``true``
+for those datasets 
 where peaks can be extracted using the Thermo RAW API.
 Read more about the OpenMS peak picker algorithm 
 `here <https://abibuilder.cs.uni-tuebingen.de/archive/openms/Documentation/nightly/html/TOPP_PeakPickerWavelet.html>`_ .
@@ -30,7 +31,7 @@ to convert .d to mzML (default ``false``).
 Mass spectra statistics: Quality metrics extraction
 ---------------------------------------------------
 
-The mass spectrum file can be parsed and generates a set of statistics about the file by
+The mass spectrum file can be parsed to generate a set of statistics with
 `quantmsutilsc mzmlstats <https://github.com/bigbio/quantms-utils/blob/main/quantmsutils/mzml/mzml_statistics.py#L574>`_ ,
 and then passed to the ``pmultiqc`` module to perform quality control visualization.
 including as follow columns:
