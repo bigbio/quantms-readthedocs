@@ -1,6 +1,6 @@
 # ![nf-core/quantms](docs/images/nf-core-quantms_logo_light.png#gh-light-mode-only) ![nf-core/quantms](docs/images/nf-core-quantms_logo_dark.png#gh-dark-mode-only)
 
-Source repository for the Sphinx documentation of the `bigbio/quantms` nextflow pipeline.
+Source repository for the Sphinx documentation of the `bigbio/quantms` Nextflow pipeline.
 
 ## Docs Creation
 
@@ -9,7 +9,7 @@ a PR-specific build on
 [ReadTheDocs project builds](https://readthedocs.org/projects/quantms-readthedocs/builds/),
 and under the Actions tab of this PR.
 
-### local Build
+### Local Build
 
 In order to build the docs, you need to 
 
