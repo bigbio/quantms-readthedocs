@@ -1,33 +1,32 @@
 # ![nf-core/quantms](docs/images/nf-core-quantms_logo_light.png#gh-light-mode-only) ![nf-core/quantms](docs/images/nf-core-quantms_logo_dark.png#gh-dark-mode-only)
 
-Sphinx documentation for the bigbio/quantms pipeline.
+Source repository for the Sphinx documentation of the `bigbio/quantms` nextflow pipeline.
 
-## Docs creation
+## Docs Creation
 
-The documentation is built by ReadTheDocs and you can see previews of your changes for
-a PR specific build, see the
-[ReadTheDocs project builds](https://readthedocs.org/projects/quantms-readthedocs/builds/).
-There is under the Actions tab in a PR also a direct link to the ReadTheDocs build for that PR.
+The documentation is built by ReadTheDocs. You can see previews of your changes for
+a PR-specific build on
+[ReadTheDocs project builds](https://readthedocs.org/projects/quantms-readthedocs/builds/),
+and under the Actions tab of this PR.
 
-### local build
+### local Build
 
-In order to build the docs you need to 
+In order to build the docs, you need to 
 
-  1. install sphinx and additional support packages
-  2. build the package reference files
-  3. run sphinx to create a local html version
+  1. Install sphinx and additional support packages
+  2. Build the package reference files
+  3. Run sphinx to create a local html version
 
-Install the docs dependencies of the package (as speciefied in toml):
+Install the docs dependencies of the package (as specified in `requirements.txt`):
 
 ```bash
 # in main folder
 pip install -r requirements.txt
 ```
 
-Then build the html page using Sphinx command line tools.
-The command needs to be run from within the `docs` folder.
+Run the following command inside the `docs` folder to build the HTML:
 
-```bash	
+```bash
 # build page in docs folder
 sphinx-build -n -W --keep-going -b html ./ ./_build/
 ```
