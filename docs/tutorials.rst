@@ -64,7 +64,7 @@ See :doc:`getting_started` for file preparation details and :doc:`protein_databa
 
 .. code-block:: bash
 
-   nextflow run bigbio/quantms -r 1.6.0 \
+   nextflow run bigbio/quantms -r 1.7.0 \
      --input project.sdrf.tsv \
      --database proteome_plus_contaminants.fasta \
      -profile docker
@@ -128,7 +128,7 @@ See :doc:`protein_database` for detailed FASTA preparation with contaminants and
 
 .. code-block:: bash
 
-   nextflow run bigbio/quantms -r 1.6.0 \
+   nextflow run bigbio/quantms -r 1.7.0 \
      --input project.sdrf.tsv \
      --database proteome_plus_contaminants_with_descriptions.fasta \
      --acquisition_method dia \

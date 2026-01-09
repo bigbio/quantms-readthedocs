@@ -43,7 +43,7 @@ Quickstart: 5-minute test
          <span style="font-size: 18px; font-weight: bold;">Run the test</span>
       </div>
       <div style="background: #374151; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 14px; margin: 10px 0;">
-         nextflow run bigbio/quantms -r 1.6.0 -profile test_lfq,docker
+         nextflow run bigbio/quantms -r 1.7.0 -profile test_lfq,docker
       </div>
       <div style="background: #065f46; padding: 10px; border-radius: 4px; margin-top: 10px;">
          <strong>✅ Success:</strong> You should see "Pipeline completed successfully!" after 5-10 minutes
@@ -59,7 +59,7 @@ Quickstart: 5-minute test
       <h4 style="margin: 0 0 10px 0; color: #8b5cf6;">🎯 Ready for your own data?</h4>
       <p style="margin: 0 0 15px 0;">Replace the test files with your own:</p>
       <div style="background: #1f2937; color: #f9fafb; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 12px; margin: 10px 0;">
-         nextflow run bigbio/quantms -r 1.6.0 \<br>
+         nextflow run bigbio/quantms -r 1.7.0 \<br>
          &nbsp;&nbsp;--input YOUR_EXPERIMENT.sdrf.tsv \<br>
          &nbsp;&nbsp;--database YOUR_PROTEOME.fasta \<br>
          &nbsp;&nbsp;-profile docker
