@@ -199,6 +199,7 @@ Navigate to the right section
    modlocal
    dda
    dia
+   diann_extra_args
    statistics
    parameters
    inputs_outputs

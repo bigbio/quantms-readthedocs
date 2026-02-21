@@ -106,6 +106,43 @@ Relevant parameters
 
 - See `DIA-NN <parameters.html#dia-nn>`_ for options such as ``--mass_acc_automatic``, ``--scan_window``, ``--diann_speclib``, ``--diann_normalize``, and mzTab export via ``--enable_diann_mztab``.
 
+Passing extra DIA-NN arguments
+-------------------------------
+
+quantms exposes a ``--diann_extra_args`` parameter that lets users pass additional DIA-NN command-line arguments to all five DIA-NN steps (INSILICO_LIBRARY_GENERATION, PRELIMINARY_ANALYSIS, ASSEMBLE_EMPIRICAL_LIBRARY, INDIVIDUAL_ANALYSIS, FINAL_QUANTIFICATION). This is useful for flags not covered by existing pipeline parameters, such as custom modifications or advanced DIA-NN options.
+
+.. code-block:: bash
+
+   # Pass additional modifications to all DIA-NN steps
+   nextflow run bigbio/quantms \
+     --diann_extra_args "--var-mod UniMod:35,15.994915,M --fixed-mod UniMod:-1,296.18,C"
+
+**Validation and safety:** Each step has a blocklist of flags that are incompatible or already controlled by pipeline parameters. If a blocked flag is detected in ``--diann_extra_args``, it is automatically **stripped with a warning** — the pipeline does not fail. Blocked flags fall into three categories:
+
+1. **Structural flags** (``--temp``, ``--threads``, ``--verbose``, ``--lib``, ``--f``, ``--fasta``) — managed by Nextflow infrastructure.
+2. **Step-incompatible flags** — would cause errors in a specific step (e.g., ``--gen-spec-lib`` in INDIVIDUAL_ANALYSIS).
+3. **Parameter-controlled flags** — already set by pipeline parameters (e.g., ``--mass-acc`` via ``--mass_acc_automatic``, ``--pg-level`` via ``--pg_level``). Passing them again via ``--diann_extra_args`` would silently override the pipeline's value.
+
+For a complete reference of which flags are blocked in each step (and why), see the :doc:`diann_extra_args` page.
+
+.. note:: Modifications declared in the SDRF (via ``--var-mod`` and ``--fixed-mod`` in the generated ``diann_config.cfg``) are automatically passed to all analysis steps. This follows DIA-NN best practice: modifications must be declared both during library generation and during raw data analysis. You do not need to re-declare SDRF modifications via ``--diann_extra_args``.
+
+**Step-specific overrides:** For advanced use cases where different flags are needed per step, use a custom Nextflow configuration file:
+
+.. code-block:: bash
+
+   # custom.config
+   process {
+     withName: ".*:DIA:FINAL_QUANTIFICATION" {
+       ext.args = { existing_args + " --report-lib-info" }
+     }
+   }
+
+   # Then run with:
+   nextflow run bigbio/quantms -c custom.config
+
+.. warning:: Because quantms decomposes DIA-NN into five separate Nextflow processes (some running per-file in parallel), certain DIA-NN flags that work in a monolithic DIA-NN invocation may not behave as expected. For example, per-file steps (PRELIMINARY_ANALYSIS, INDIVIDUAL_ANALYSIS) process a single file per invocation, so multi-run flags like ``--unrelated-runs`` or ``--quant-train-runs`` have no effect.
+
 Important technical notes
 ---------------------------
 
