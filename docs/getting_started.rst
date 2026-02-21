@@ -36,7 +36,7 @@ Getting started
          <h3 style="margin: 10px 0 10px 0; color: #f59e0b;">🧪 Run Test</h3>
          <div style="background: #1f2937; color: #f9fafb; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 12px; margin: 10px 0;">
             nextflow run bigbio/quantms \<br>
-            &nbsp;&nbsp;-r 1.6.0 -profile test_lfq,docker
+            &nbsp;&nbsp;-r 1.7.0 -profile test_lfq,docker
          </div>
          <small>Takes 5-10 minutes</small>
       </div>
@@ -125,7 +125,7 @@ Running your analysis
 .. code-block:: bash
 
    # Template command for your data
-   nextflow run bigbio/quantms -r 1.6.0 \
+   nextflow run bigbio/quantms -r 1.7.0 \
      --input path/to/your.sdrf.tsv \
      --database path/to/proteome_plus_contaminants.fasta \
      --acquisition_method [dda|dia] \
