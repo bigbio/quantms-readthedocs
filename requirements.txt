@@ -3,3 +3,4 @@ furo
 myst-nb
 sphinx-new-tab-link
 sphinx-copybutton
+nf-docs
