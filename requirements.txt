@@ -3,4 +3,4 @@ furo
 myst-nb
 sphinx-new-tab-link
 sphinx-copybutton
-nf-docs
+nf-docs @ git+https://github.com/edircoli/nf-docs.git@main
