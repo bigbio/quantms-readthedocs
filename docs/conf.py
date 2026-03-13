@@ -11,8 +11,11 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import tempfile
+import subprocess
+import shutil
+from pathlib import Path
 
-# import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -80,3 +83,41 @@ if os.environ.get("READTHEDOCS") == "True":
         # on extensions, see:
         # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
         app.connect("builder-inited", download_files)
+
+# -- Generating nf-docs ------------------------------------------------------
+
+PIPELINE_GIT = os.environ.get("PIPELINE_GIT", "https://github.com/bigbio/quantms.git") # quantMS repo URL
+PIPELINE_REF = os.environ.get("PIPELINE_REF", "master")  # branch
+GENERATED_DIRNAME = "_nf_docs"  # folder with generated docs
+
+def generate_nf_docs(app):
+    srcdir = Path(app.srcdir)   
+    outdir = srcdir / GENERATED_DIRNAME
+    # avoid re-generating repeatedly
+    if outdir.exists():
+        shutil.rmtree(outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    tmp = Path(tempfile.mkdtemp(prefix="nfdocs-"))
+    try:
+        # clone only the ref
+        subprocess.run(["git", "clone", "--depth", "1", "--branch", PIPELINE_REF, PIPELINE_GIT, str(tmp)], check=True)
+        # run nf-docs CLI command
+        subprocess.run(["nf-docs", "generate", str(tmp)], check=True)
+        # move generator output into ReadTheDocs source directory
+        generated_from_tmp = tmp / "site"
+        if generated_from_tmp.exists():
+            shutil.move(str(generated_from_tmp), str(outdir))
+        else:
+            # fallback: move all files generated in tmp into outdir
+            for p in tmp.iterdir():
+                if p.name == ".git":
+                    continue
+                shutil.move(str(p), str(outdir / p.name))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+def setup(app):
+    app.connect("builder-inited", generate_nf_docs)
+
+html_extra_path = [GENERATED_DIRNAME]
