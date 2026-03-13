@@ -1,0 +1,4 @@
+[project]
+dependencies = [
+  "nf-docs @ git+https://github.com/edircoli/nf-docs.git@main"
+]
