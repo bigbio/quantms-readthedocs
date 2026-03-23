@@ -219,9 +219,10 @@ Navigate to the right section
 
 .. toctree::
    :maxdepth: 1
+   :caption: "Documentation from nf-docs"
    :hidden:
 
-   _nf_docs
+   _nf_docs/*
 |
 
 The following links should be followed to get support and help with the quantms maintainers:
