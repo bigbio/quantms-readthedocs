@@ -217,6 +217,13 @@ Navigate to the right section
 
 |
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   _nf_docs
+|
+
 The following links should be followed to get support and help with the quantms maintainers:
 
 |Get help on Slack|   |Report Issue| |Get help on GitHub Forum|
