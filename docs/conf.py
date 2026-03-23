@@ -11,9 +11,9 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
-import tempfile
-import subprocess
 import shutil
+import subprocess
+import tempfile
 from pathlib import Path
 
 # sys.path.insert(0, os.path.abspath('.'))
@@ -136,6 +136,3 @@ def generate_nf_docs(app):
 
 def setup(app):
     app.connect("builder-inited", generate_nf_docs)
-
-
-html_extra_path = [GENERATED_DIRNAME]
