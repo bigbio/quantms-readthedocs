@@ -21,15 +21,15 @@ from pathlib import Path
 
 # -- Project information -----------------------------------------------------
 
-project = 'quantms'
-copyright = '2022, daichengxin, jpfeuffer, timosachenberg, ypriverol'
-author = 'daichengxin, jpfeuffer, timosachenberg, ypriverol'
+project = "quantms"
+copyright = "2022, daichengxin, jpfeuffer, timosachenberg, ypriverol"
+author = "daichengxin, jpfeuffer, timosachenberg, ypriverol"
 
 # The full version, including alpha/beta/rc tags
-release = '1.7.0'
+release = "1.7.0"
 
 # Language for this documentation
-language = 'en'
+language = "en"
 
 # -- General configuration ---------------------------------------------------
 
@@ -43,7 +43,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -56,18 +56,18 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'furo'
+html_theme = "furo"
 
 numfig = True
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # Custom CSS files to include
 html_css_files = [
-    'custom.css',
+    "custom.css",
 ]
 
 if os.environ.get("READTHEDOCS") == "True":
@@ -84,14 +84,18 @@ if os.environ.get("READTHEDOCS") == "True":
         # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
         app.connect("builder-inited", download_files)
 
+
 # -- Generating nf-docs ------------------------------------------------------
 
-PIPELINE_GIT = os.environ.get("PIPELINE_GIT", "https://github.com/bigbio/quantms.git") # quantMS repo URL
+PIPELINE_GIT = os.environ.get(
+    "PIPELINE_GIT", "https://github.com/bigbio/quantms.git"
+)  # quantMS repo URL
 PIPELINE_REF = os.environ.get("PIPELINE_REF", "master")  # branch
 GENERATED_DIRNAME = "_nf_docs"  # folder with generated docs
 
+
 def generate_nf_docs(app):
-    srcdir = Path(app.srcdir)   
+    srcdir = Path(app.srcdir)
     outdir = srcdir / GENERATED_DIRNAME
     # avoid re-generating repeatedly
     if outdir.exists():
@@ -101,7 +105,19 @@ def generate_nf_docs(app):
     tmp = Path(tempfile.mkdtemp(prefix="nfdocs-"))
     try:
         # clone only the ref
-        subprocess.run(["git", "clone", "--depth", "1", "--branch", PIPELINE_REF, PIPELINE_GIT, str(tmp)], check=True)
+        subprocess.run(
+            [
+                "git",
+                "clone",
+                "--depth",
+                "1",
+                "--branch",
+                PIPELINE_REF,
+                PIPELINE_GIT,
+                str(tmp),
+            ],
+            check=True,
+        )
         # run nf-docs CLI command
         subprocess.run(["nf-docs", "generate", str(tmp)], check=True)
         # move generator output into ReadTheDocs source directory
@@ -117,7 +133,9 @@ def generate_nf_docs(app):
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 
+
 def setup(app):
     app.connect("builder-inited", generate_nf_docs)
+
 
 html_extra_path = [GENERATED_DIRNAME]
