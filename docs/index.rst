@@ -215,7 +215,22 @@ Navigate to the right section
    dev
    contact
 
-|
+
+.. toctree::
+   :maxdepth: 1
+   :caption: "Documentation from nf-docs"
+   :hidden:
+
+   _nf_docs/.github/CONTRIBUTING
+   _nf_docs/.github/PULL_REQUEST_TEMPLATE
+   _nf_docs/CHANGELOG
+   _nf_docs/CITATIONS
+   _nf_docs/CODE_OF_CONDUCT
+   _nf_docs/README
+   _nf_docs/docs/README
+   _nf_docs/docs/output
+   _nf_docs/docs/usage
+
 
 The following links should be followed to get support and help with the quantms maintainers:
 

@@ -2,3 +2,5 @@
 _build
 # downloaded from bigbio/quantms
 quantms_output.md
+# for nf-docs
+_nf_docs
